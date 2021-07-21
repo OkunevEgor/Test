@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Добавление книги</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="custom-alert"></div>
+            <form th:action="@{/books/saveBook}" id="add_book" th:object="${book}" method="post" enctype="multipart/form-data" >
+                <div class="mb-3">
+                    <label for="name" class="col-form-label">Название:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="genre" class="col-form-label">Жанр:</label>
+                    <input type="text" class="form-control" id="genre" name="genre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="author" class="col-form-label">Автор:</label>
+                    <input type="text" class="form-control" id="author" name="author">
+                </div>
+                <div class="mb-3">
+                    <label for="yearOfIssue" class="col-form-label">Дата издания:</label>
+                    <input type="date" class="form-control" id="yearOfIssue" name="totalOfSheets" required>
+                </div>
+                <div class="mb-3">
+                    <label for="totalOfSheets" class="col-form-label">Количество страниц:</label>
+                    <input type="number" class="form-control" id="totalOfSheets" name="totalOfSheets" required>
+                </div>
+                <div class="mb-3">
+                    <label for="totalNumberOfBookInTheLibrary" class="col-form-label">Количество в библиотеке:</label>
+                    <input type="number" class="form-control" id="totalNumberOfBookInTheLibrary" name="totalNumberOfBookInTheLibrary" required>
+                </div>
+                <div class="mb-3">
+                    <label for="totalOfBooks" class="col-form-label">Доступное количество:</label>
+                    <input type="number" class="form-control" id="totalOfBooks" name="totalNumberOfBookInTheLibrary" required>
+                </div>
+               <!-- <div class="mb-3">
+                    <label for="user-roles" class="col-form-label">Авторы:</label>
+                    <select id="user-roles" class="form-select" size="3" th:field="*{author}" multiple="multiple" required>
+                        <option th:each="author : ${predefinedRoles}"
+                                th:value="${{author.pid}}">
+                                &lt;!&ndash;th:text="${role.pid}"&ndash;&gt;
+                            Cinema
+                        </option>
+                    </select>
+                </div>-->
+                <div class="mb-3">
+                    <label class="col-form-label">Статус:</label>
+                    <input name= "genre" type="radio" class="radio" required
+                           th:each="genre : ${T(com.example.demo.model.Genre).values()}"
+                           th:text="${genre}"
+                           th:value="${genre}"/>
+                    </label>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</html>

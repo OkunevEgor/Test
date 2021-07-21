@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div class="btn-toolbar justify-content-between" role="toolbar">
+
+    <div class="btn-group mb-3 mt-3" role="group">
+        <a th:href="@{books/addNewBook}" class="btn btn-success" id="addBtn">
+            Добавить
+        </a>
+    </div>
+    <div class="input-group mb-3 ms-auto w-50">
+        <input type="text" class="form-control" aria-label="Search" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
+    </div>
+</div>
+</html>
